@@ -1,0 +1,12 @@
+git --version
+git init
+git status
+git add .
+git status
+git remote add origin1 https:
+git config --global user.email "s"
+git config --global user.name "s"
+git commit -m "Changes mode"
+git push -u origin1 master
+git pull origin1
+git status

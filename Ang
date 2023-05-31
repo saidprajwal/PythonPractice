@@ -1,0 +1,151 @@
+Angular 
+Install npm if not there 
+Intall angular cli – npm install -g @angular/cli@latest
+Ng new foldername
+Routing y
+CSS
+Generate component : ng generate component <component-name>
+
+register-form.component.html
+ <div class="container">
+      <label for="uname"><b>Username  </b></label>
+      <input type="text" #uname placeholder="Enter Username " name="uname" required><br><br>
+      <label for="uname"><b>Full Name   </b></label>
+      <input type="text" #fullname placeholder="Enter Full Name " name="fullname" required><br><br>
+      <label for="uname"><b>Email   </b></label>
+      <input type="text" #email placeholder="Enter Email  " name="email" required><br><br>
+      <label for="uname"><b>Mobile Number   </b></label>
+      <input type="text" #mobileno placeholder="Enter Mobile Number " name="mobileno" required><br><br>
+      <label for="psw"><b>Password    </b></label>
+      <input type="password" placeholder="Enter Password  " name="psw" required><br><br>
+      <label for="psw"><b>Repeat Password   </b></label>
+      <input type="password" placeholder="Enter Password  " name="psw" required><br><br>
+      <button (click)="getValue(uname.value,fullname.value,email.value,mobileno.value)">Register</button><br><br>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  <h1>Your Register Data is</h1>
+  <p>Username: {{displayusername}}</p>
+  <p>Fullname: {{displayname}}</p>
+  <p>Email: {{displayemail}}</p>
+  <p>Mobile No: {{displaymobileNo}}</p>
+ 
+register-form.component.ts
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.css']
+})
+export class RegisterFormComponent {
+  title="Registration Form";
+  displayusername="";
+  displayname="";
+  displayemail="";
+  displaymobileNo="";
+  getValue(uname:string,fullname:string,email:string,mobileno:string){
+      this.displayusername=uname;
+      this.displayname=fullname;
+      this.displayemail=email;
+      this.displaymobileNo=mobileno;
+  }
+}
+
+
+user-login.component.html
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" #uname placeholder="Enter Username" name="uname" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <button (click)="getValue(uname.value)">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  <p>Your username is: {{displayusername}}</p>
+
+user-login.component.ts
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-user-login',
+  templateUrl: './user-login.component.html',
+  styleUrls: ['./user-login.component.css']
+})
+export class UserLoginComponent {
+  title="Login Form";
+  displayusername="";
+  getValue(uname:string){
+      this.displayusername=uname;
+  }
+}
+
+user-login.component.css
+form {
+    border: 3px solid #f1f1f1;
+  }
+    /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  .container {
+    padding: 16px;
+  } 
+  span.psw {
+  float: right;
+    padding-top: 16px;
+  }
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+app.component.html
+<app-register-form></app-register-form>
+<app-user-login></app-user-login>
+
+app.component.ts
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'helloWorld';}

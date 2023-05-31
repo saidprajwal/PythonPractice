@@ -1,0 +1,17 @@
+FROM node:alpine
+COPY . /docker
+CMD node /docker/app/js
+
+
+# docker version
+# docker build -t foldername
+# docker images
+# docker login
+# docker tag image_name:version repos
+# docker images
+# docker push repo/image
+# docker pull repo/image
+# docker run -p 8081:8081 repo/name
+
+app.js
+console.log('Hello')
